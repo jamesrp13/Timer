@@ -19,11 +19,50 @@ class TimerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
+    let timer = Timer()
 
     @IBAction func pauseButtonTapped(sender: AnyObject) {
     }
     
     @IBAction func startButtonTapped(sender: AnyObject) {
+        self.toggleTimer()
+    }
+    
+    func toggleTimer() {
+        if timer.isOn {
+            timer.stopTimer()
+            switchToPickerView()
+        } else {
+            switchToTimerView()
+            let totalSeconds = (hourPickerView.selectedRowInComponent(0)*60*60) + (minutePickerView.selectedRowInComponent(0)*60)
+            let totalSecondsOnTimer = NSTimeInterval(totalSeconds)
+            
+            timer.setTime(totalSecondsOnTimer, totalSeconds: totalSecondsOnTimer)
+            updateTimerBasedViews()
+            timer.startTimer()
+        }
+    }
+    
+    func switchToPickerView() {
+        pickerStackView.hidden = false
+    }
+    
+    func switchToTimerView() {
+        pickerStackView.hidden = true
+    }
+    
+    func updateTimerLabel() {
+        timerLabel.text = timer.timerString()
+    }
+    
+    func updateProgressView() {
+
+        
+    }
+    
+    func updateTimerBasedViews(){
+        updateTimerLabel()
+        updateProgressView()
     }
     
     override func viewDidLoad() {
