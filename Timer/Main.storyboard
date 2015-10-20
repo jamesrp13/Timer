@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Px1-nF-qP9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Px1-nF-qP9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -35,7 +35,7 @@
                                                 </connections>
                                             </pickerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jac-uy-C33">
-                                                <rect key="frame" x="80" y="65" width="50" height="20.5"/>
+                                                <rect key="frame" x="80" y="65" width="50" height="21"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -64,7 +64,7 @@
                                                 </connections>
                                             </pickerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCQ-Ug-wly">
-                                                <rect key="frame" x="80" y="65" width="65" height="20.5"/>
+                                                <rect key="frame" x="80" y="65" width="65" height="21"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -80,7 +80,7 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7p-1o-yDk">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7p-1o-yDk">
                                 <rect key="frame" x="110" y="102" width="100" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -91,7 +91,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h7k-hA-7Xs">
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h7k-hA-7Xs">
                                 <rect key="frame" x="0.0" y="64" width="320" height="2"/>
                                 <animations/>
                             </progressView>
@@ -189,11 +189,11 @@
             </objects>
             <point key="canvasLocation" x="2316" y="912"/>
         </scene>
-        <!--Item-->
+        <!--Timer-->
         <scene sceneID="N4E-x9-bXj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Bg-0k-0Hb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="6cP-kO-mQI"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="Timer" selectedImage="Timer" id="6cP-kO-mQI"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qDe-WW-uTD">
@@ -230,11 +230,11 @@
             </objects>
             <point key="canvasLocation" x="1511" y="346"/>
         </scene>
-        <!--Item-->
+        <!--Alarm Clock-->
         <scene sceneID="0c7-JN-r0v">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pEf-Bh-w8k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="nQC-MP-X6W"/>
+                    <tabBarItem key="tabBarItem" title="Alarm Clock" image="Alarm Clock" selectedImage="Alarm Clock" id="nQC-MP-X6W"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="U7S-8f-wSq">
@@ -252,4 +252,8 @@
             <point key="canvasLocation" x="1919" y="912"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Alarm Clock" width="25" height="25"/>
+        <image name="Timer" width="25" height="25"/>
+    </resources>
 </document>
