@@ -10,6 +10,14 @@ import UIKit
 
 class AlarmViewController: UIViewController {
 
+    @IBOutlet weak var datePickerView: UIDatePicker!
+    
+    let alarm = Alarm()
+    
+    func setAlarm() {
+        let fireDate = datePickerView.date
+        alarm.arm(fireDate)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +28,7 @@ class AlarmViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*

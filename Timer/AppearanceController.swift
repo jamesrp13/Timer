@@ -17,7 +17,7 @@ class AppearanceController{
         //UIView.appearance().backgroundColor = UIColor.customDarkBlue()
         UIButton.appearance().backgroundColor = UIColor.customDarkGrey()
         UIButton.appearance().setTitleColor(UIColor.customLightBlue(), forState: .Normal)
-        UITabBar.appearance().backgroundColor = UIColor.customDarkYellow()
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.customLightBlue()], forState: .Selected)
         
     }
     

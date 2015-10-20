@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Px1-nF-qP9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Px1-nF-qP9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -168,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="2332" y="346"/>
         </scene>
-        <!--View Controller-->
+        <!--Alarm View Controller-->
         <scene sceneID="Ztq-1M-7io">
             <objects>
-                <viewController id="qTd-lz-TDc" sceneMemberID="viewController">
+                <viewController id="qTd-lz-TDc" customClass="AlarmViewController" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Orx-7L-ov2"/>
                         <viewControllerLayoutGuide type="bottom" id="9uq-Eq-Kjg"/>
@@ -179,11 +179,31 @@
                     <view key="view" contentMode="scaleToFill" id="g8n-d7-Fwj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VDJ-FI-LD3">
+                                <rect key="frame" x="0.0" y="132" width="320" height="216"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="UPI-DC-M3u"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="467068413.75856602">
+                                    <!--2015-10-20 21:13:33 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VDJ-FI-LD3" firstAttribute="leading" secondItem="g8n-d7-Fwj" secondAttribute="leading" id="P53-nQ-I6U"/>
+                            <constraint firstAttribute="trailing" secondItem="VDJ-FI-LD3" secondAttribute="trailing" id="RaD-al-KKd"/>
+                            <constraint firstItem="VDJ-FI-LD3" firstAttribute="top" secondItem="Orx-7L-ov2" secondAttribute="bottom" constant="68" id="nIq-0y-Q6p"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9Ep-V1-JI7"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="datePickerView" destination="VDJ-FI-LD3" id="0yQ-ee-xaw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSd-BW-zwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
