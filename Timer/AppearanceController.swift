@@ -14,10 +14,10 @@ class AppearanceController{
     
     static func initializeAppearance() {
         UINavigationBar.appearance().barTintColor = UIColor.customLightBlue()
-        //UIView.appearance().backgroundColor = UIColor.customDarkBlue()
         UIButton.appearance().backgroundColor = UIColor.customDarkGrey()
         UIButton.appearance().setTitleColor(UIColor.customLightBlue(), forState: .Normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.customLightBlue()], forState: .Selected)
+        //UIView.appearance().backgroundColor = UIColor.customDarkYellow()
         
     }
     

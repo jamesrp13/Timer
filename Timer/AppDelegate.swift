@@ -38,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        let settingDetails = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settingDetails)
+        
 
     }
     
@@ -45,6 +48,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        let alertController = UIAlertController(title: "Time's Up", message: "Do work you lazy bum!", preferredStyle: .Alert)
+        let dismissButton = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
+        alertController.addAction(dismissButton)
+        
+        self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
+        
+        Alarm.alarmComplete()
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 

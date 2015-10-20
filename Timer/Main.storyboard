@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Px1-nF-qP9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Px1-nF-qP9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -180,29 +180,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VDJ-FI-LD3">
-                                <rect key="frame" x="0.0" y="132" width="320" height="216"/>
-                                <animations/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3O2-fx-mRH">
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9iJ-sf-ld6">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="277"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="467071751.41820502">
+                                            <!--2015-10-20 22:09:11 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Alarm Is Not Set" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEb-5P-wQN">
+                                        <rect key="frame" x="0.0" y="277" width="320" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="qc5-Fu-V6h"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igH-5C-wZZ">
+                                        <rect key="frame" x="0.0" y="307" width="320" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="01T-eJ-93f"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntn-RR-bAC">
+                                        <rect key="frame" x="0.0" y="307" width="320" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="dg7-ku-9KA"/>
+                                        </constraints>
+                                        <state key="normal" title="Set Alarm"/>
+                                        <connections>
+                                            <action selector="alarmButtonTapped:" destination="qTd-lz-TDc" eventType="touchUpInside" id="uNg-bN-xHl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="UPI-DC-M3u"/>
+                                    <constraint firstAttribute="trailing" secondItem="igH-5C-wZZ" secondAttribute="trailing" id="0ar-GF-UnF"/>
+                                    <constraint firstItem="igH-5C-wZZ" firstAttribute="leading" secondItem="3O2-fx-mRH" secondAttribute="leading" id="2oN-JO-mTA"/>
+                                    <constraint firstItem="ntn-RR-bAC" firstAttribute="leading" secondItem="3O2-fx-mRH" secondAttribute="leading" id="8Uz-Gy-cCx"/>
+                                    <constraint firstAttribute="trailing" secondItem="ntn-RR-bAC" secondAttribute="trailing" id="96R-Ci-naE"/>
+                                    <constraint firstItem="igH-5C-wZZ" firstAttribute="top" secondItem="HEb-5P-wQN" secondAttribute="bottom" id="Tsw-Vn-S8u"/>
+                                    <constraint firstAttribute="trailing" secondItem="HEb-5P-wQN" secondAttribute="trailing" id="avR-Zo-mhO"/>
+                                    <constraint firstItem="ntn-RR-bAC" firstAttribute="top" secondItem="igH-5C-wZZ" secondAttribute="bottom" id="bhE-i2-bJV"/>
+                                    <constraint firstItem="HEb-5P-wQN" firstAttribute="leading" secondItem="3O2-fx-mRH" secondAttribute="leading" id="hz7-Xp-XM9"/>
+                                    <constraint firstAttribute="bottom" secondItem="ntn-RR-bAC" secondAttribute="bottom" id="vMf-7s-jOS"/>
                                 </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="467068413.75856602">
-                                    <!--2015-10-20 21:13:33 +0000-->
-                                </date>
-                            </datePicker>
+                            </stackView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VDJ-FI-LD3" firstAttribute="leading" secondItem="g8n-d7-Fwj" secondAttribute="leading" id="P53-nQ-I6U"/>
-                            <constraint firstAttribute="trailing" secondItem="VDJ-FI-LD3" secondAttribute="trailing" id="RaD-al-KKd"/>
-                            <constraint firstItem="VDJ-FI-LD3" firstAttribute="top" secondItem="Orx-7L-ov2" secondAttribute="bottom" constant="68" id="nIq-0y-Q6p"/>
+                            <constraint firstItem="3O2-fx-mRH" firstAttribute="top" secondItem="Orx-7L-ov2" secondAttribute="bottom" id="A7j-oP-rSc"/>
+                            <constraint firstAttribute="trailing" secondItem="3O2-fx-mRH" secondAttribute="trailing" id="N6B-8x-GsM"/>
+                            <constraint firstItem="9uq-Eq-Kjg" firstAttribute="top" secondItem="3O2-fx-mRH" secondAttribute="bottom" id="ZFm-jy-wLX"/>
+                            <constraint firstItem="3O2-fx-mRH" firstAttribute="leading" secondItem="g8n-d7-Fwj" secondAttribute="leading" id="mTe-Cm-yGz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9Ep-V1-JI7"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="datePickerView" destination="VDJ-FI-LD3" id="0yQ-ee-xaw"/>
+                        <outlet property="alarmButton" destination="ntn-RR-bAC" id="LZZ-qk-wUU"/>
+                        <outlet property="alarmSetLabel" destination="HEb-5P-wQN" id="V1o-Cp-wQt"/>
+                        <outlet property="dateLabel" destination="igH-5C-wZZ" id="2r0-FL-of6"/>
+                        <outlet property="datePickerView" destination="9iJ-sf-ld6" id="JKB-MN-mAZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSd-BW-zwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
