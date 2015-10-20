@@ -12,16 +12,33 @@ class TimerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
 
     @IBOutlet weak var pickerStackView: UIStackView!
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var timerProgressView: NSLayoutConstraint!
+    @IBOutlet weak var timerProgressView: UIProgressView!
     @IBOutlet weak var hourPickerView: UIPickerView!
     @IBOutlet weak var minutePickerView: UIPickerView!
-    
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
     let timer = Timer()
+    var isPaused = false
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTimerBasedViews", name: Timer.TimerSecondTickNotification, object: timer)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "timerComplete", name: Timer.TimerCompleteNotification, object: timer)
+        
+    }
+    
     @IBAction func pauseButtonTapped(sender: AnyObject) {
+        if isPaused {
+            timer.startTimer()
+            pauseButton.setTitle("Pause", forState: .Normal)
+            isPaused = false
+        } else {
+            timer.stopTimer()
+            isPaused = true
+            pauseButton.setTitle("Resume", forState: .Normal)
+        }
     }
     
     @IBAction func startButtonTapped(sender: AnyObject) {
@@ -45,18 +62,30 @@ class TimerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     
     func switchToPickerView() {
         pickerStackView.hidden = false
+        timerLabel.hidden = true
+        timerProgressView.hidden = true
+        startButton.setTitle("Start", forState: .Normal)
     }
     
     func switchToTimerView() {
         pickerStackView.hidden = true
+        timerLabel.hidden = false
+        timerProgressView.hidden = false
+        timerProgressView.setProgress(0.0, animated: false)
+        startButton.setTitle("Cancel", forState: .Normal)
+        isPaused = false
+    
     }
     
     func updateTimerLabel() {
-        timerLabel.text = timer.timerString()
+        let timeAsString = timer.timerString()
+        timerLabel.text = timeAsString
     }
     
     func updateProgressView() {
-
+        let timeElapsed = timer.totalSeconds - timer.seconds
+        let percentDone = Float(timeElapsed/timer.totalSeconds)
+        timerProgressView.setProgress(percentDone, animated: true)
         
     }
     
@@ -65,11 +94,6 @@ class TimerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         updateProgressView()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
 
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -87,6 +111,10 @@ class TimerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         let rowLabel = UILabel()
         rowLabel.text = "\(row)"
         return rowLabel
+    }
+    
+    func timerComplete() {
+        switchToPickerView()
     }
     
     override func didReceiveMemoryWarning() {

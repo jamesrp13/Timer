@@ -161,7 +161,7 @@
                         <outlet property="pickerStackView" destination="fj2-IM-ezz" id="ohc-tJ-8AT"/>
                         <outlet property="startButton" destination="Ub9-Mu-2f6" id="mk8-8F-iUy"/>
                         <outlet property="timerLabel" destination="f7p-1o-yDk" id="yNM-cS-zZ2"/>
-                        <outlet property="timerProgressView" destination="1nR-TB-3xQ" id="UhP-0k-5fV"/>
+                        <outlet property="timerProgressView" destination="h7k-hA-7Xs" id="oQt-kJ-jax"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oJU-fx-tu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
