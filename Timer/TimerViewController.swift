@@ -27,6 +27,25 @@ class TimerViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTimerBasedViews", name: Timer.TimerSecondTickNotification, object: timer)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "timerComplete", name: Timer.TimerCompleteNotification, object: timer)
         
+        guard let scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else { return }
+            timer.stopTimer()
+            
+        for notification in scheduledNotifications {
+            if notification.category == Timer.TimerLocalNotification {
+                UIApplication.sharedApplication().cancelLocalNotification(notification)
+                
+                let now = NSDate()
+                guard let fireDate = notification.fireDate, let userInfo = notification.userInfo as? [String: NSTimeInterval], let totalTime = userInfo[Timer.TimerTotalSeconds] else {return}
+                let timeRemaining = fireDate.timeIntervalSinceDate(now)
+                timer.setTime(timeRemaining, totalSeconds: totalTime)
+                updateTimerBasedViews()
+                timer.startTimer()
+                switchToTimerView()
+                
+            }
+                
+        }
+        
     }
     
     @IBAction func pauseButtonTapped(sender: AnyObject) {

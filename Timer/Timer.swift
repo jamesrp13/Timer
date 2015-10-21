@@ -12,6 +12,8 @@ class Timer: NSObject {
 
     static let TimerSecondTickNotification = "timerSecondTickNotification"
     static  let TimerCompleteNotification = "timerCompleteNotification"
+    static let TimerLocalNotification = "timerLocalNotification"
+    static let TimerTotalSeconds = "timerTotalSeconds"
     
     private(set) var seconds = NSTimeInterval(0)
     private(set) var totalSeconds = NSTimeInterval(0)
@@ -31,10 +33,18 @@ class Timer: NSObject {
         self.totalSeconds = totalSeconds
     }
     
+    private var localNotification: UILocalNotification?
+    
     func startTimer(){
         if (timer == nil) {
             timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "secondTick", userInfo: nil, repeats: true)
-                    NSLog(" ")
+            
+            let alarmNotification = UILocalNotification()
+            alarmNotification.fireDate = NSDate().dateByAddingTimeInterval(totalSeconds)
+            alarmNotification.category = Timer.TimerLocalNotification
+            alarmNotification.userInfo = [Timer.TimerTotalSeconds:totalSeconds]
+            localNotification = alarmNotification
+            UIApplication.sharedApplication().scheduleLocalNotification(alarmNotification)
         }
     }
     
@@ -42,7 +52,9 @@ class Timer: NSObject {
         if let timer = timer {
             timer.invalidate()
             self.timer = nil
-            // Create notification about stop?
+            if let localNotification = localNotification {
+                UIApplication.sharedApplication().cancelLocalNotification(localNotification)
+            }
         }
     }
     
